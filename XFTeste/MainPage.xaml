@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFTeste.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:XFTeste.Controls"
+    xmlns:icons="clr-namespace:XFTeste.Resources.Fonts">
+
+    <Grid
+        Padding="0"
+        BackgroundColor="White"
+        ColumnDefinitions="*,3*"
+        ColumnSpacing="0"
+        RowDefinitions="30,50,50,*"
+        RowSpacing="0">
+
+        <BoxView Grid.RowSpan="4" BackgroundColor="#6D8451" />
+
+        <!--  Header  -->
+        <FlexLayout
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="30,0"
+            JustifyContent="SpaceBetween">
+            <ImageButton BackgroundColor="Transparent">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="MaterialDesignIcon"
+                        Glyph="{x:Static icons:FontIcons.DotsTriangle}"
+                        Color="White" />
+                </ImageButton.Source>
+            </ImageButton>
+
+            <ImageButton BackgroundColor="Transparent">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="MaterialDesignIcon"
+                        Glyph="{x:Static icons:FontIcons.Magnify}"
+                        Color="Black" />
+                </ImageButton.Source>
+            </ImageButton>
+        </FlexLayout>
+        <!--  End Header  -->
+
+        <!--  Side Menu  -->
+
+        <Grid Grid.RowSpan="4" VerticalOptions="Center">
+
+
+            <!--<controls:SelectionIndicator x:Name="SelectionIndicator" />-->
+            <Ellipse
+                x:Name="EllipseMarkup"
+                Margin="0,60,-30,0"
+                Fill="White"
+                HeightRequest="70"
+                HorizontalOptions="End"
+                StrokeThickness="0"
+                VerticalOptions="Start"
+                WidthRequest="50" />
+
+
+            <FlexLayout
+                x:Name="MenuFlexlayout"
+                Margin="0,80"
+                Direction="Column"
+                JustifyContent="SpaceEvenly">
+
+                <Label
+                    x:Name="MenuItem1"
+                    FontSize="Small"
+                    Rotation="-90"
+                    Text="Green Plants"
+                    TextColor="White"
+                    VerticalTextAlignment="End">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+                    x:Name="MenuItem2"
+                    FontSize="Small"
+                    Rotation="-90"
+                    Text="Indoor Plants"
+                    TextColor="White">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+                    x:Name="MenuItem3"
+                    FontSize="Small"
+                    Rotation="-90"
+                    Text="Shape Close"
+                    TextColor="White">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </FlexLayout>
+        </Grid>
+
+        <!--  End Side Menu  -->
+
+        <!--  Plants list  -->
+
+        <StackLayout
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Margin="20,0">
+
+            <Label Text="Green" TextColor="#9B9B9B" />
+            <Label
+                Margin="0,-10,0,0"
+                FontAttributes="Bold"
+                FontSize="35"
+                Text="Plants" />
+
+            <ScrollView>
+                <StackLayout>
+                    <Image Source="Plant1" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        Text="Turf Pot Plant" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        MaxLines="2"
+                        Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        TextColor="#9B9B9B" />
+
+
+                    <FlexLayout>
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="25"
+                            Text="$ 85.00" />
+
+                        <Frame
+                            Margin="20,5,0,0"
+                            Padding="0"
+                            CornerRadius="10"
+                            HeightRequest="20"
+                            WidthRequest="20">
+                            <Image Aspect="AspectFit" Scale="0.5">
+                                <Image.Source>
+                                    <FontImageSource
+                                        FontFamily="MaterialDesignIcon"
+                                        Glyph="{x:Static icons:FontIcons.Plus}"
+                                        Size="10"
+                                        Color="Black" />
+                                </Image.Source>
+                            </Image>
+                        </Frame>
+                    </FlexLayout>
+
+
+                    <Image Source="Plant2" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        Text="Turf Pot Plant" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        MaxLines="2"
+                        Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        TextColor="#9B9B9B" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        Text="$ 85.00" />
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+
+        <!--  End Plants list  -->
+
+        <ImageButton
+            Grid.RowSpan="4"
+            Margin="10"
+            BackgroundColor="Transparent"
+            VerticalOptions="EndAndExpand">
+            <ImageButton.Source>
+                <FontImageSource
+                    FontFamily="MaterialDesignIcon"
+                    Glyph="{x:Static icons:FontIcons.HomeOutline}"
+                    Color="White" />
+            </ImageButton.Source>
+        </ImageButton>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="XFTeste.Controls.SelectionIndicator"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <StackLayout>
+            <Grid Margin="70,0,0,0">
+                <Ellipse
+                    x:Name="EllipseMarkup"
+                    Fill="White"
+                    HeightRequest="80"
+                    StrokeThickness="0"
+                    WidthRequest="50" />
+
+                <Ellipse
+                    Margin="10,0,0,0"
+                    Fill="#6D8451"
+                    HeightRequest="5"
+                    HorizontalOptions="Start"
+                    StrokeThickness="0"
+                    VerticalOptions="Center"
+                    WidthRequest="5" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
