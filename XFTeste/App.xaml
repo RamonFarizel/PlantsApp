@@ -1,8 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XFTeste.App">
+<Application
+    x:Class="XFTeste.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Application.Resources>
+
+        <Color x:Key="PrimaryGreenColor">#6D8451</Color>
+        <Color x:Key="WhiteColor">White</Color>
+        <Color x:Key="lightGrayColor">#9B9B9B</Color>
+
+        <Style x:Key="TitleLabelStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+
+        <Style x:Key="DescriptionLabelStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{x:StaticResource lightGrayColor}" />
+            <Setter Property="MaxLines" Value="2" />
+        </Style>
+
+        <Style x:Key="PriceLabelStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="VerticalTextAlignment" Value="End" />
+        </Style>
+
+        <Style x:Key="PriceFrameStyle" TargetType="Frame">
+            <Setter Property="Margin" Value="20,5,0,0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="HeightRequest" Value="20" />
+            <Setter Property="WidthRequest" Value="20" />
+        </Style>
 
     </Application.Resources>
 </Application>

@@ -16,24 +16,33 @@
                         <VisualState x:Name="Normal" />
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
-                                <Setter Property="BackgroundColor" Value="White" />
+                                <Setter Property="BackgroundColor" Value="{x:StaticResource WhiteColor}" />
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
                 </VisualStateGroupList>
             </Setter>
         </Style>
+
+        <Style x:Key="MenuItemsStyle" TargetType="Label">
+
+            <Setter Property="FontSize" Value="Small" />
+            <Setter Property="Rotation" Value="-90" />
+            <Setter Property="TextColor" Value="{x:StaticResource WhiteColor}" />
+        </Style>
+
+
     </ContentPage.Resources>
 
     <Grid
         Padding="0"
-        BackgroundColor="White"
+        BackgroundColor="{x:StaticResource WhiteColor}"
         ColumnDefinitions="*,3*"
         ColumnSpacing="0"
         RowDefinitions="30,50,50,*"
         RowSpacing="0">
 
-        <BoxView Grid.RowSpan="4" BackgroundColor="#6D8451" />
+        <BoxView Grid.RowSpan="4" BackgroundColor="{x:StaticResource PrimaryGreenColor}" />
 
         <!--  Header  -->
         <FlexLayout
@@ -46,7 +55,7 @@
                     <FontImageSource
                         FontFamily="MaterialDesignIcon"
                         Glyph="{x:Static icons:FontIcons.DotsTriangle}"
-                        Color="White" />
+                        Color="{x:StaticResource WhiteColor}" />
                 </ImageButton.Source>
             </ImageButton>
 
@@ -65,6 +74,7 @@
 
 
         <!--
+            iOS Shadow
             xct:ShadowEffect.Color="Black"
             xct:ShadowEffect.OffsetX="-10"
             xct:ShadowEffect.OffsetY="10"
@@ -87,10 +97,8 @@
 
                 <Label
                     x:Name="MenuItem1"
-                    FontSize="Small"
-                    Rotation="-90"
+                    Style="{StaticResource MenuItemsStyle}"
                     Text="Green Plants"
-                    TextColor="White"
                     VerticalTextAlignment="End">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
@@ -99,10 +107,8 @@
 
                 <Label
                     x:Name="MenuItem2"
-                    FontSize="Small"
-                    Rotation="-90"
-                    Text="Indoor Plants"
-                    TextColor="White">
+                    Style="{StaticResource MenuItemsStyle}"
+                    Text="Indoor Plants">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
                     </Label.GestureRecognizers>
@@ -110,10 +116,8 @@
 
                 <Label
                     x:Name="MenuItem3"
-                    FontSize="Small"
-                    Rotation="-90"
-                    Text="Shape Close"
-                    TextColor="White">
+                    Style="{StaticResource MenuItemsStyle}"
+                    Text="Shape Close">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
                     </Label.GestureRecognizers>
@@ -132,12 +136,13 @@
             Grid.Column="1"
             Margin="20,0">
 
-            <Label Text="Green" TextColor="#9B9B9B" />
+            <Label Text="Green" TextColor="{StaticResource lightGrayColor}" />
             <Label
                 Margin="0,-10,0,0"
                 FontAttributes="Bold"
                 FontSize="35"
-                Text="Plants" />
+                Text="Plants"
+                TextColor="Black" />
 
 
             <CollectionView
@@ -149,34 +154,15 @@
                         <StackLayout>
                             <Image Source="{Binding PlantImage}" />
 
-                            <Label
-                                FontAttributes="Bold"
-                                FontSize="20"
-                                Text="{Binding Title}"
-                                TextColor="Black" />
+                            <Label Style="{StaticResource TitleLabelStyle}" Text="{Binding Title}" />
 
-                            <Label
-                                FontAttributes="Bold"
-                                FontSize="14"
-                                MaxLines="2"
-                                Text="{Binding Description}"
-                                TextColor="#9B9B9B" />
+                            <Label Style="{StaticResource DescriptionLabelStyle}" Text="{Binding Description}" />
 
 
                             <FlexLayout Margin="0,0,0,10">
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="20"
-                                    Text="{Binding Price}"
-                                    TextColor="Black"
-                                    VerticalTextAlignment="End" />
+                                <Label Style="{StaticResource PriceLabelStyle}" Text="{Binding Price}" />
 
-                                <Frame
-                                    Margin="20,5,0,0"
-                                    Padding="0"
-                                    CornerRadius="10"
-                                    HeightRequest="20"
-                                    WidthRequest="20">
+                                <Frame Style="{StaticResource PriceFrameStyle}">
                                     <Image Aspect="AspectFit" Scale="0.5">
                                         <Image.Source>
                                             <FontImageSource
@@ -207,7 +193,7 @@
                 <FontImageSource
                     FontFamily="MaterialDesignIcon"
                     Glyph="{x:Static icons:FontIcons.HomeOutline}"
-                    Color="White" />
+                    Color="{x:StaticResource WhiteColor}" />
             </ImageButton.Source>
         </ImageButton>
 

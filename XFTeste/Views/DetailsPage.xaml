@@ -6,7 +6,7 @@
     xmlns:icons="clr-namespace:XFTeste.Resources.Fonts"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:vm="clr-namespace:XFTeste.ViewModels"
-    BackgroundColor="#6D8451"
+    BackgroundColor="{x:StaticResource PrimaryGreenColor}"
     NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
@@ -17,8 +17,8 @@
                 Grid.RowSpan="3"
                 Aspect="UniformToFill"
                 Data="M 1 0 L 8 0 V 9 M 1 0 V 5 C 1 9 2 9 8 9"
-                Fill="white"
-                Stroke="white"
+                Fill="White"
+                Stroke="White"
                 VerticalOptions="Fill" />
 
             <FlexLayout
@@ -50,18 +50,54 @@
                 </ImageButton>
             </FlexLayout>
 
-            <StackLayout
+            <Grid
                 Grid.Row="2"
-                Margin="0,0,0,30"
-                Padding="30,0"
-                Spacing="0"
-                VerticalOptions="EndAndExpand">
+                Margin="0,0,0,20"
+                VerticalOptions="End">
 
-                <Grid TranslationX="-10" TranslationY="20">
+                <StackLayout
+                    Margin="0,0,0,30"
+                    Padding="30,0"
+                    Spacing="0">
+
+                    <Image
+                        Aspect="AspectFill"
+                        Scale="1"
+                        Source="{Binding Plant.PlantImage}" />
+
+                    <StackLayout Margin="50,0,0,0" VerticalOptions="Center">
+                        <Label Style="{StaticResource TitleLabelStyle}" Text="{Binding Plant.Title}" />
+
+                        <Label Style="{StaticResource DescriptionLabelStyle}" Text="{Binding Plant.Description}" />
+
+
+                        <FlexLayout Margin="0,0,0,10">
+                            <Label Style="{StaticResource PriceLabelStyle}" Text="{Binding Plant.Price}" />
+
+                            <Frame Style="{StaticResource PriceFrameStyle}">
+                                <Image Aspect="AspectFit" Scale="0.5">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            FontFamily="MaterialDesignIcon"
+                                            Glyph="{x:Static icons:FontIcons.Plus}"
+                                            Size="10"
+                                            Color="Black" />
+                                    </Image.Source>
+                                </Image>
+                            </Frame>
+                        </FlexLayout>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <Grid
+                    Margin="0,10,10,0"
+                    HeightRequest="40"
+                    VerticalOptions="Start"
+                    WidthRequest="40">
 
                     <Ellipse
                         Fill="#6D8451"
-                        HeightRequest="40"
                         HorizontalOptions="End"
                         StrokeThickness="0"
                         WidthRequest="40" />
@@ -71,61 +107,12 @@
                             <FontImageSource
                                 FontFamily="MaterialDesignIcon"
                                 Glyph="{x:Static icons:FontIcons.HeartOutline}"
-                                Color="White" />
+                                Color="{x:StaticResource WhiteColor}" />
                         </Image.Source>
                     </Image>
                 </Grid>
 
-                <Image
-                    Aspect="AspectFill"
-                    BackgroundColor="Red"
-                    HeightRequest="250"
-                    Scale="0.8"
-                    Source="{Binding Plant.PlantImage}" />
-
-                <StackLayout Margin="50,0,0,0" VerticalOptions="Center">
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        Text="{Binding Plant.Title}"
-                        TextColor="Black" />
-
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="14"
-                        MaxLines="2"
-                        Text="{Binding Plant.Description}"
-                        TextColor="#9B9B9B" />
-
-
-                    <FlexLayout Margin="0,0,0,10">
-                        <Label
-                            FontAttributes="Bold"
-                            FontSize="20"
-                            Text="{Binding Plant.Price}"
-                            TextColor="Black"
-                            VerticalTextAlignment="End" />
-
-                        <Frame
-                            Margin="20,5,0,0"
-                            Padding="0"
-                            CornerRadius="10"
-                            HeightRequest="20"
-                            WidthRequest="20">
-                            <Image Aspect="AspectFit" Scale="0.5">
-                                <Image.Source>
-                                    <FontImageSource
-                                        FontFamily="MaterialDesignIcon"
-                                        Glyph="{x:Static icons:FontIcons.Plus}"
-                                        Size="10"
-                                        Color="Black" />
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                    </FlexLayout>
-                </StackLayout>
-
-            </StackLayout>
+            </Grid>
 
             <!--  Footer  -->
             <Grid
@@ -140,7 +127,7 @@
                         <FontImageSource
                             FontFamily="MaterialDesignIcon"
                             Glyph="{x:Static icons:FontIcons.ArrowExpandVertical}"
-                            Color="White" />
+                            Color="{x:StaticResource WhiteColor}" />
                     </Image.Source>
                 </Image>
 
@@ -149,7 +136,7 @@
                         <FontImageSource
                             FontFamily="MaterialDesignIcon"
                             Glyph="{x:Static icons:FontIcons.ThermometerLow}"
-                            Color="White" />
+                            Color="{x:StaticResource WhiteColor}" />
                     </Image.Source>
                 </Image>
 
@@ -158,7 +145,7 @@
                         <FontImageSource
                             FontFamily="MaterialDesignIcon"
                             Glyph="{x:Static icons:FontIcons.FlowerOutline}"
-                            Color="White" />
+                            Color="{x:StaticResource WhiteColor}" />
                     </Image.Source>
                 </Image>
 
@@ -167,7 +154,7 @@
                     FontAttributes="Bold"
                     HorizontalOptions="Center"
                     Text="Height"
-                    TextColor="White" />
+                    TextColor="{x:StaticResource WhiteColor}" />
 
                 <Label
                     Grid.Row="1"
@@ -175,7 +162,7 @@
                     FontAttributes="Bold"
                     HorizontalOptions="Center"
                     Text="Temperature"
-                    TextColor="White" />
+                    TextColor="{x:StaticResource WhiteColor}" />
 
                 <Label
                     Grid.Row="1"
@@ -183,7 +170,7 @@
                     FontAttributes="Bold"
                     HorizontalOptions="Center"
                     Text="Pot"
-                    TextColor="White" />
+                    TextColor="{x:StaticResource WhiteColor}" />
 
 
                 <Label
@@ -192,7 +179,7 @@
                     FontSize="Caption"
                     HorizontalOptions="Center"
                     Text="40cm - 50cm"
-                    TextColor="White" />
+                    TextColor="{x:StaticResource WhiteColor}" />
 
                 <Label
                     Grid.Row="2"
@@ -200,7 +187,7 @@
                     FontSize="Caption"
                     HorizontalOptions="Center"
                     Text="18°C to 25°C"
-                    TextColor="White" />
+                    TextColor="{x:StaticResource WhiteColor}" />
 
                 <Label
                     Grid.Row="2"
@@ -208,7 +195,7 @@
                     FontSize="Caption"
                     HorizontalOptions="Center"
                     Text="Self Watering Pot"
-                    TextColor="White" />
+                    TextColor="{x:StaticResource WhiteColor}" />
 
             </Grid>
             <!--  End Footer  -->
