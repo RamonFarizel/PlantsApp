@@ -52,11 +52,12 @@
 
             <StackLayout
                 Grid.Row="2"
-                Margin="0,30,0,0"
+                Margin="0,0,0,30"
                 Padding="30,0"
-                VerticalOptions="Fill">
+                Spacing="0"
+                VerticalOptions="EndAndExpand">
 
-                <Grid>
+                <Grid TranslationX="-10" TranslationY="20">
 
                     <Ellipse
                         Fill="#6D8451"
@@ -75,7 +76,12 @@
                     </Image>
                 </Grid>
 
-                <Image Aspect="AspectFill" Source="{Binding Plant.PlantImage}" />
+                <Image
+                    Aspect="AspectFill"
+                    BackgroundColor="Red"
+                    HeightRequest="250"
+                    Scale="0.8"
+                    Source="{Binding Plant.PlantImage}" />
 
                 <StackLayout Margin="50,0,0,0" VerticalOptions="Center">
                     <Label
@@ -118,6 +124,7 @@
                         </Frame>
                     </FlexLayout>
                 </StackLayout>
+
             </StackLayout>
 
             <!--  Footer  -->
