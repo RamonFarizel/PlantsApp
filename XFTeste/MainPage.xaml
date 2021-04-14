@@ -5,7 +5,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:XFTeste.Controls"
     xmlns:icons="clr-namespace:XFTeste.Resources.Fonts"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="White" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
 
     <Grid
         Padding="0"
@@ -115,73 +133,60 @@
                 FontSize="35"
                 Text="Plants" />
 
-            <ScrollView>
-                <StackLayout>
-                    <Image Source="Plant1">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateCommand}" />
-                        </Image.GestureRecognizers>
-                    </Image>
 
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        Text="Turf Pot Plant" />
+            <CollectionView
+                ItemsSource="{Binding Plants}"
+                SelectedItem="{Binding Plant}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Image Source="{Binding PlantImage}" />
 
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="14"
-                        MaxLines="2"
-                        Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                        TextColor="#9B9B9B" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                Text="{Binding Title}"
+                                TextColor="Black" />
 
-
-                    <FlexLayout>
-                        <Label
-                            FontAttributes="Bold"
-                            FontSize="20"
-                            Text="$ 85.00"
-                            VerticalTextAlignment="End" />
-
-                        <Frame
-                            Margin="20,5,0,0"
-                            Padding="0"
-                            CornerRadius="10"
-                            HeightRequest="20"
-                            WidthRequest="20">
-                            <Image Aspect="AspectFit" Scale="0.5">
-                                <Image.Source>
-                                    <FontImageSource
-                                        FontFamily="MaterialDesignIcon"
-                                        Glyph="{x:Static icons:FontIcons.Plus}"
-                                        Size="10"
-                                        Color="Black" />
-                                </Image.Source>
-                            </Image>
-                        </Frame>
-                    </FlexLayout>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                MaxLines="2"
+                                Text="{Binding Description}"
+                                TextColor="#9B9B9B" />
 
 
-                    <Image Source="Plant2" />
+                            <FlexLayout Margin="0,0,0,10">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    Text="{Binding Price}"
+                                    TextColor="Black"
+                                    VerticalTextAlignment="End" />
 
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="25"
-                        Text="Turf Pot Plant" />
+                                <Frame
+                                    Margin="20,5,0,0"
+                                    Padding="0"
+                                    CornerRadius="10"
+                                    HeightRequest="20"
+                                    WidthRequest="20">
+                                    <Image Aspect="AspectFit" Scale="0.5">
+                                        <Image.Source>
+                                            <FontImageSource
+                                                FontFamily="MaterialDesignIcon"
+                                                Glyph="{x:Static icons:FontIcons.Plus}"
+                                                Size="10"
+                                                Color="Black" />
+                                        </Image.Source>
+                                    </Image>
+                                </Frame>
+                            </FlexLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="14"
-                        MaxLines="2"
-                        Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                        TextColor="#9B9B9B" />
-
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="25"
-                        Text="$ 85.00" />
-                </StackLayout>
-            </ScrollView>
 
         </StackLayout>
 

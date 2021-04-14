@@ -9,12 +9,8 @@
     BackgroundColor="#6D8451"
     NavigationPage.HasNavigationBar="False">
 
-    <ContentPage.BindingContext>
-        <vm:DetailsPageViewModel />
-    </ContentPage.BindingContext>
-
     <ContentPage.Content>
-        <Grid RowDefinitions="25,50,3*,*">
+        <Grid RowDefinitions="25,50,3*,*" RowSpacing="0">
 
             <Path
                 Grid.Row="0"
@@ -30,25 +26,101 @@
                 Padding="20,0"
                 Direction="Row"
                 JustifyContent="SpaceBetween">
-                <ImageButton Command="{Binding BackNavigationCommand}" HorizontalOptions="Start">
+                <ImageButton
+                    BackgroundColor="Transparent"
+                    Command="{Binding BackNavigationCommand}"
+                    HorizontalOptions="Start">
                     <ImageButton.Source>
                         <FontImageSource
                             FontFamily="MaterialDesignIcon"
                             Glyph="{x:Static icons:FontIcons.ArrowLeft}"
-                            Size="30" />
+                            Size="30"
+                            Color="Black" />
                     </ImageButton.Source>
                 </ImageButton>
 
-                <ImageButton HorizontalOptions="Start">
+                <ImageButton BackgroundColor="Transparent" HorizontalOptions="Start">
                     <ImageButton.Source>
                         <FontImageSource
                             FontFamily="MaterialDesignIcon"
                             Glyph="{x:Static icons:FontIcons.CartOutline}"
-                            Size="30" />
+                            Size="30"
+                            Color="Black" />
                     </ImageButton.Source>
                 </ImageButton>
             </FlexLayout>
 
+            <StackLayout
+                Grid.Row="2"
+                Padding="30,0"
+                BackgroundColor="Fuchsia"
+                VerticalOptions="Fill">
+
+                <Grid>
+
+                    <Ellipse
+                        Fill="#6D8451"
+                        HeightRequest="40"
+                        HorizontalOptions="End"
+                        StrokeThickness="0"
+                        WidthRequest="40" />
+
+                    <Image Margin="0,0,5,0" HorizontalOptions="End">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="MaterialDesignIcon"
+                                Glyph="{x:Static icons:FontIcons.HeartOutline}"
+                                Color="White" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+
+                <Image Aspect="AspectFill" Source="{Binding Plant.PlantImage}" />
+
+                <StackLayout Margin="50,0,0,0" VerticalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="{Binding Plant.Title}"
+                        TextColor="Black" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        MaxLines="2"
+                        Text="{Binding Plant.Description}"
+                        TextColor="#9B9B9B" />
+
+
+                    <FlexLayout Margin="0,0,0,10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Text="{Binding Plant.Price}"
+                            TextColor="Black"
+                            VerticalTextAlignment="End" />
+
+                        <Frame
+                            Margin="20,5,0,0"
+                            Padding="0"
+                            CornerRadius="10"
+                            HeightRequest="20"
+                            WidthRequest="20">
+                            <Image Aspect="AspectFit" Scale="0.5">
+                                <Image.Source>
+                                    <FontImageSource
+                                        FontFamily="MaterialDesignIcon"
+                                        Glyph="{x:Static icons:FontIcons.Plus}"
+                                        Size="10"
+                                        Color="Black" />
+                                </Image.Source>
+                            </Image>
+                        </Frame>
+                    </FlexLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <!--  Footer  -->
             <Grid
                 Grid.Row="3"
                 Padding="20,20,20,0"
@@ -132,6 +204,7 @@
                     TextColor="White" />
 
             </Grid>
+            <!--  End Footer  -->
         </Grid>
     </ContentPage.Content>
 </ContentPage>
