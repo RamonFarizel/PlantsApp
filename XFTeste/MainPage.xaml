@@ -4,7 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:XFTeste.Controls"
-    xmlns:icons="clr-namespace:XFTeste.Resources.Fonts">
+    xmlns:icons="clr-namespace:XFTeste.Resources.Fonts"
+    NavigationPage.HasNavigationBar="False">
 
     <Grid
         Padding="0"
@@ -116,7 +117,11 @@
 
             <ScrollView>
                 <StackLayout>
-                    <Image Source="Plant1" />
+                    <Image Source="Plant1">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
 
                     <Label
                         FontAttributes="Bold"

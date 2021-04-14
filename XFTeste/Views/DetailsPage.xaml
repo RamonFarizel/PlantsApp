@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="XFTeste.Views.DetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:XFTeste.Resources.Fonts"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    BackgroundColor="#6D8451"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowDefinitions="25,50,3*,*">
+
+            <Path
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Aspect="UniformToFill"
+                Data="M 1 0 L 8 0 V 9 M 1 0 V 5 C 1 9 2 9 8 9"
+                Fill="white"
+                Stroke="white"
+                VerticalOptions="Fill" />
+
+            <FlexLayout
+                Grid.Row="1"
+                Padding="20,0"
+                Direction="Row"
+                JustifyContent="SpaceBetween">
+                <ImageButton HorizontalOptions="Start">
+                    <ImageButton.Source>
+                        <FontImageSource
+                            FontFamily="MaterialDesignIcon"
+                            Glyph="{x:Static icons:FontIcons.ArrowLeft}"
+                            Size="30" />
+                    </ImageButton.Source>
+                </ImageButton>
+
+                <ImageButton HorizontalOptions="Start">
+                    <ImageButton.Source>
+                        <FontImageSource
+                            FontFamily="MaterialDesignIcon"
+                            Glyph="{x:Static icons:FontIcons.CartOutline}"
+                            Size="30" />
+                    </ImageButton.Source>
+                </ImageButton>
+            </FlexLayout>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
