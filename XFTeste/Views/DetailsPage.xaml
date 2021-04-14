@@ -5,8 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:icons="clr-namespace:XFTeste.Resources.Fonts"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:vm="clr-namespace:XFTeste.ViewModels"
     BackgroundColor="#6D8451"
     NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vm:DetailsPageViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <Grid RowDefinitions="25,50,3*,*">
 
@@ -24,7 +30,7 @@
                 Padding="20,0"
                 Direction="Row"
                 JustifyContent="SpaceBetween">
-                <ImageButton HorizontalOptions="Start">
+                <ImageButton Command="{Binding BackNavigationCommand}" HorizontalOptions="Start">
                     <ImageButton.Source>
                         <FontImageSource
                             FontFamily="MaterialDesignIcon"
@@ -43,7 +49,89 @@
                 </ImageButton>
             </FlexLayout>
 
+            <Grid
+                Grid.Row="3"
+                Padding="20,20,20,0"
+                ColumnDefinitions="*,*,*"
+                RowDefinitions="*,25,25"
+                VerticalOptions="Start">
 
+                <Image>
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="MaterialDesignIcon"
+                            Glyph="{x:Static icons:FontIcons.ArrowExpandVertical}"
+                            Color="White" />
+                    </Image.Source>
+                </Image>
+
+                <Image Grid.Column="1">
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="MaterialDesignIcon"
+                            Glyph="{x:Static icons:FontIcons.ThermometerLow}"
+                            Color="White" />
+                    </Image.Source>
+                </Image>
+
+                <Image Grid.Column="2">
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="MaterialDesignIcon"
+                            Glyph="{x:Static icons:FontIcons.FlowerOutline}"
+                            Color="White" />
+                    </Image.Source>
+                </Image>
+
+                <Label
+                    Grid.Row="1"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="Height"
+                    TextColor="White" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="Temperature"
+                    TextColor="White" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="Pot"
+                    TextColor="White" />
+
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    FontSize="Caption"
+                    HorizontalOptions="Center"
+                    Text="40cm - 50cm"
+                    TextColor="White" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontSize="Caption"
+                    HorizontalOptions="Center"
+                    Text="18°C to 25°C"
+                    TextColor="White" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    FontSize="Caption"
+                    HorizontalOptions="Center"
+                    Text="Self Watering Pot"
+                    TextColor="White" />
+
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
