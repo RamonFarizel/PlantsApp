@@ -3,25 +3,29 @@
     x:Class="XFTeste.Controls.SelectionIndicator"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout Margin="70,10,0,0">
+    <StackLayout>
 
 
         <Grid>
-            <Ellipse
+            <Path
                 x:Name="EllipseMarkup"
-                Fill="White"
-                HeightRequest="80"
+                Margin="25,0,-1,0"
+                Aspect="Fill"
+                Data="M 5 1 V 7 C 5 6 1 6 1 4 C 1 2 5 2 5 1"
+                Fill="white"
+                HeightRequest="100"
+                HorizontalOptions="EndAndExpand"
                 StrokeThickness="0"
-                WidthRequest="50" />
+                WidthRequest="30" />
 
             <Ellipse
-                Margin="10,0,0,0"
+                Margin="0,0,10,0"
                 Fill="#6D8451"
-                HeightRequest="5"
-                HorizontalOptions="Start"
+                HeightRequest="10"
+                HorizontalOptions="End"
                 StrokeThickness="0"
                 VerticalOptions="Center"
-                WidthRequest="5" />
+                WidthRequest="10" />
         </Grid>
     </StackLayout>
 </ContentView>

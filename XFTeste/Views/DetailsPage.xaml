@@ -52,8 +52,8 @@
 
             <StackLayout
                 Grid.Row="2"
+                Margin="0,30,0,0"
                 Padding="30,0"
-                BackgroundColor="Fuchsia"
                 VerticalOptions="Fill">
 
                 <Grid>
