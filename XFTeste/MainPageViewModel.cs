@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Plugin.SharedTransitions;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 using XFTeste.Models;

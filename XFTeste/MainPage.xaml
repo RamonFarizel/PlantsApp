@@ -5,7 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:XFTeste.Controls"
     xmlns:icons="clr-namespace:XFTeste.Resources.Fonts"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    sharedTransitions:SharedTransitionNavigationPage.TransitionDuration="500"
+    sharedTransitions:SharedTransitionNavigationPage.TransitionSelectedGroup="1"
     NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Resources>
@@ -152,7 +155,10 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Image Source="{Binding PlantImage}" />
+                            <Image
+                                sharedTransitions:Transition.Group="1"
+                                sharedTransitions:Transition.Name="TransitionPlant"
+                                Source="{Binding PlantImage}" />
 
                             <Label Style="{StaticResource TitleLabelStyle}" Text="{Binding Title}" />
 

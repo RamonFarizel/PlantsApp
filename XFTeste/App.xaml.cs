@@ -1,4 +1,5 @@
 ﻿using System;
+using Plugin.SharedTransitions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace XFTeste
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new SharedTransitionNavigationPage(new MainPage());
         }
 
         protected override void OnStart()
